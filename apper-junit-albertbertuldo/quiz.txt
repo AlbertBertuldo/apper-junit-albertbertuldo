@@ -1,0 +1,20 @@
+Quiz.txt
+
+1. Unit Test - per component. smallest piece of code that can be logically isolated
+2. Integration Test - test integrated components. Tested as a combined entity
+3. System Test - checking system's compliance as per requirements
+4. Acceptance Test - usually done by the user, customer or stock.
+5. False
+6. JUnit Jupiter
+
+7. Assertions.assertEquals() - compares two values for equality. It checks whether the expected value is equal to the actual value.
+
+8. Assertions.assertNull - ensures that a given object reference is null. It checks if the object reference is null and passes the test if it is.
+
+9. Assertions.assertNotNull() - used to verify that a given object reference is not null. It takes an object as a parameter and checks if the object reference is not null
+
+10. Assertions.assertFalse() - checks that a given condition is false. It takes a boolean expression and verifies that it evaluates to false
+
+
+
+
