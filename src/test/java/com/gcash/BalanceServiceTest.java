@@ -44,7 +44,7 @@ public class BalanceServiceTest {
     }
 
     @Test
-     void testCredit() {
+    void testCredit() {
         // Create an account
         String accountId = accountRepository.createAccount("Bertuldo Albert", 100.0);
 
