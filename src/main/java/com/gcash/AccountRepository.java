@@ -19,36 +19,25 @@ public class AccountRepository {
     public Account getAccount(String id) {
         return accounts
                 .stream()
-                .filter(account -> id.equals(account.id()))
+                .filter(account -> id.equals(account.getId()))
                 .findFirst()
                 .orElse(null);
-
-        /*
-            for (Account account : accounts) {
-                if (account.id().equals(id)) {
-                    return account;
-                }
-
-         */
     }
 
     public void deleteAccount(String id) {
         accounts
                 .stream()
-                .filter(account -> id.equals(account.id()))
+                .filter(account -> id.equals(account.getId()))
                 .findFirst()
                 .ifPresent(accounts::remove);
-        /*
-        for (Account account : accounts) {
-            if (account.id().equals(id)) {
-                accounts.remove(account);
-                return;
-            }
-        }
-        */
     }
 
     public Integer getNumberOfAccounts() {
         return accounts.size();
+    }
+
+    public boolean noRegisteredAccount() {
+
+        return accounts.isEmpty();
     }
 }
