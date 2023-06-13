@@ -15,11 +15,13 @@ public class Account {
         return id;
     }
 
-
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Double getBalance() {
         return balance;

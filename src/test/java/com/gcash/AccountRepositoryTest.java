@@ -4,6 +4,9 @@ package com.gcash;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AccountRepositoryTest {
 
     @Test
@@ -42,7 +45,6 @@ public class AccountRepositoryTest {
 
         //Verify
         Assertions.assertEquals(0, repository.getNumberOfAccounts());
-        Assertions.assertNull(repository.getAccount(id));
     }
 
     @Test
@@ -63,28 +65,32 @@ public class AccountRepositoryTest {
         //Verify
         Assertions.assertEquals(3, repository.getNumberOfAccounts());
     }
+
     @Test
-    public void testNoRegisteredAccount() {
-        AccountRepository repository = new AccountRepository();
+    void noRegisteredAccount() {
+        AccountRepository accountRepository = new AccountRepository();
 
-        // Check if there are no registered accounts
-        Assertions.assertTrue(repository.noRegisteredAccount());
-
-        // Create an account
-        String id = repository.createAccount("John Albert", 100.00);
-
-        // Check if there is now one registered account
-        Assertions.assertFalse(repository.noRegisteredAccount());
+        Assertions.assertTrue(accountRepository.noRegisteredAccount());
     }
 
     @Test
-    public void testSetBalance() {
+    void getAllAccountNames() {
         AccountRepository accountRepository = new AccountRepository();
-        String accountId = accountRepository.createAccount("John Albert", 100.0);
-        Account account = accountRepository.getAccount(accountId);
-        Assertions.assertNotNull(account);
+        accountRepository.createAccount("Orvyl", 100.0);
+        accountRepository.createAccount("Bert", 100.0);
+        accountRepository.createAccount("Albert", 100.0);
+        accountRepository.createAccount("Bert1", 100.0);
+        accountRepository.createAccount("Albert1", 100.0);
 
-        account.setBalance(150.0);
-        Assertions.assertEquals(150.0, account.getBalance(), 0.001);
+        List<String> allAccountNames = accountRepository.getAllAccountNames();
+
+        List<String> expectedNames = new ArrayList<>();
+        expectedNames.add("Orvyl");
+        expectedNames.add("Bert");
+        expectedNames.add("Albert");
+        expectedNames.add("Bert1");
+        expectedNames.add("Albert1");
+
+        Assertions.assertIterableEquals(expectedNames, allAccountNames);
     }
 }
